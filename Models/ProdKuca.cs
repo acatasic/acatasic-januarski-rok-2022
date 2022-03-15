@@ -17,7 +17,7 @@ namespace zoo.Models{
         [Column("Naziv")]
         public string Naziv{get;set;}
 
-         ///////UMESTO JSON IGNORE TREBA NOT MAPPED,TAKO PRAVI DODATNU TABELU SPOJA. Tabel se pravi automatski
+         
         //public virtual Kategorija Kategorija{get;set;}
         [JsonIgnore]/////mora da se doda json ignore
         public List<Kategorija>  Kategorija{get;set;}
