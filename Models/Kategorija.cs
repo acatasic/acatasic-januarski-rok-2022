@@ -24,4 +24,3 @@ namespace zoo.Models{
         }
     }
 }
-//////////U SUSTINI PK I KATEGORIJA VEZA SPOJA I FILM IMA LISTU
