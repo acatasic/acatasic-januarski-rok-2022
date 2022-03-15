@@ -62,8 +62,8 @@ namespace zoo.Controllers
                     TriNadjenaFilma[2]=element;
                 }
             }
-            for (int n=0;n<duzinaNiza;n++){
-                for (int m=0;m<duzinaNiza;m++)
+            for (int n=0;n<duzinaNiza-1;n++){
+                for (int m=1;m<duzinaNiza;m++)
                 {
                     if (nadjeniFilmovi[n].Ocena>nadjeniFilmovi[m].Ocena) 
                     {
