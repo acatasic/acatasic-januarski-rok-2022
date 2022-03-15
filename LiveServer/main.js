@@ -1,9 +1,13 @@
 import { Kategorija } from "./Kategorija.js";
 import { ProdKuca } from "./prodkuce.js"
 
+var mainDiv=document.createElement("div")
+mainDiv.className="glavniDiv";
+document.body.appendChild(mainDiv);
+
 var glavniDiv=document.createElement("div")
 glavniDiv.className="glavniDiv";
-document.body.appendChild(glavniDiv);
+mainDiv.appendChild(glavniDiv);
 
 fetch("https://localhost:5001/zoo/PreuzmiPKuce").then(p => {
     p.json().then(data => {
