@@ -19,7 +19,7 @@ namespace zoo.Models{
 
          
         //public virtual Kategorija Kategorija{get;set;}
-        [JsonIgnore]/////mora da se doda json ignore
+        [JsonIgnore]/////mora da se doda json ignore, tabela spoja se pravi automatski
         public List<Kategorija>  Kategorija{get;set;}
 
       /*  [JsonIgnore]
