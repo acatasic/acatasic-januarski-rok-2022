@@ -8,19 +8,14 @@
     border: 1px solid black;
     flex-direction: column;
     flex: 1 0 auto;
-    min-width: 333px;
-
     max-width: 33%;
-  /* flex-wrap: wrap;*/
+  
 }
 
 .kontForma {
     display: flex;
     border: 1px solid black;
     flex-direction: column;
-   
-    /*flex-wrap: wrap;*/
-   
 }
 
 
