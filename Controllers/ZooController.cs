@@ -73,7 +73,7 @@ namespace zoo.Controllers
                     }
                 }
             }
-            TriNadjenaFilma[1]= nadjeniFilmovi[duzinaNiza/2 +1 ];//film koji je srednji po ocenama
+            TriNadjenaFilma[1]= nadjeniFilmovi[duzinaNiza/2];//film koji je srednji po ocenama
         
         return TriNadjenaFilma;
         
