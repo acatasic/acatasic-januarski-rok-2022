@@ -49,17 +49,17 @@ namespace zoo.Controllers
             
             float maxOcena=-1;
             float minOcena=11;
-           
-            
             int duzinaNiza=nadjeniFilmovi.Count;
-
 
             foreach( Film element in nadjeniFilmovi)
             {
-                if(element.Ocena>maxOcena){ maxOcena=element.Ocena; TriNadjenaFilma[0]=element;}
+                if(element.Ocena>maxOcena) {
+                    maxOcena=element.Ocena; 
+                    TriNadjenaFilma[0]=element;
+                }
                 if(element.Ocena<minOcena) {
                     minOcena=element.Ocena;
-                    TriNadjenaFilma[1]=element;
+                    TriNadjenaFilma[2]=element;
                 }
             }
             for (int n=0;n<duzinaNiza;n++){
@@ -68,12 +68,9 @@ namespace zoo.Controllers
                     if (nadjeniFilmovi[n].Ocena>nadjeniFilmovi[m].Ocena) {Film t=nadjeniFilmovi[n];
                     nadjeniFilmovi[n]=nadjeniFilmovi[m];
                     nadjeniFilmovi[m]=t;}
-                    }
+                }
             }
-
-            
-            TriNadjenaFilma[2]= nadjeniFilmovi[duzinaNiza/2]; 
-               
+            TriNadjenaFilma[1]= nadjeniFilmovi[duzinaNiza/2];//film koji je srednji po ocenama
         
         return TriNadjenaFilma;
         
