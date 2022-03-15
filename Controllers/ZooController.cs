@@ -32,49 +32,13 @@ namespace zoo.Controllers
         public async Task<List<Kategorija>> PreuzmiKategorije(int idProdKuce)
         {
 
-            var produkcijskuKucuNadjene=await Context.produkcijskeKuce.FindAsync(idProdKuce);
-            var kat=await Context.kategorije.Include(p=>p.ProdukcijskaKuca).Where(p=>p.ProdukcijskaKuca.Contains(produkcijskuKucuNadjene)).ToListAsync();         
+            var produkcijskeKuceNadjene=await Context.produkcijskeKuce.FindAsync(idProdKuce);
+            var kat=await Context.kategorije.Include(p=>p.ProdukcijskaKuca).Where(p=>p.ProdukcijskaKuca.Contains(produkcijskeKuceNadjene)).ToListAsync();         
              //////////// kako da povezes tabele bez tabele za vezu u c sharpu i kako da pristupis podacima preko liste
            
             return kat;
         }      
-    
-
-
-
-        
-
-
-
-
-        /*[Route("UcitavanjeTriTopFilma/{idProdKuce}")]
-        [HttpGet]
-        public async Task<Film[]> UcitavanjeTriTopFilma(int idProdKuce)
-        {
- 
-        var listaIDKategorija= await Context.kategorije.Where(p => p.produkcijskaKuca[1].ID  ==idProdKuce).ToListAsync();
-
-
-        var nadjeniFilmovi= await Context.filmovi.Where(p=>listaIDKategorija.Contains(p.Kategorija)).ToListAsync();/////OVO RADI TAKO STO VRACA FILMOVE RESPONSE JE OVAKAV [{"id":1,"ime":"Armagedon","ocena":5,"brojOcena":3},{"id":1005,"ime":"j","ocena":9,"brojOcena":10},{"id":1006,"ime":"j","ocena":9,"brojOcena":10},{"id":1007,"ime":"j","ocena":9,"brojOcena":10},{"id":1008,"ime":"j","ocena":9,"brojOcena":10},{"id":1009,"ime":"j","ocena":9,"brojOcena":10}]
-        Film[] TriNadjenaFilma=new Film[3];///niz 3 filma
-            
-            float maxOcena=-1;
-            float minOcena=11;
-            foreach( Film element in nadjeniFilmovi)
-            {
-                if(element.Ocena>maxOcena){ maxOcena=element.Ocena; TriNadjenaFilma[0]=element;}
-                if(element.Ocena<minOcena) {
-                    minOcena=element.Ocena;
-                    TriNadjenaFilma[2]=element;
-                    TriNadjenaFilma[1]=element;
-                }
-            }
-        return TriNadjenaFilma;
-        }
-*/
-
-
-
+   
         [Route("UcitavanjeTriTopFilmaKategorije/{idKategorije}/{idProdKuce}")]
         [HttpGet]
         public async Task<Film[]> UcitavanjeTriTopFilmaKategorije(int idKategorije,int idProdKuce)
@@ -115,11 +79,11 @@ namespace zoo.Controllers
         [HttpPut]
         public async Task IzmenaPodatakaOFilmu(float ocena,int idFilma)
         {
-            var stariFilm = await Context.filmovi.FindAsync(idFilma);
+            var pronadjenFilm = await Context.filmovi.FindAsync(idFilma);
             
-            stariFilm.Ocena = (ocena+stariFilm.BrojOcena*stariFilm.Ocena)/(stariFilm.BrojOcena+1);
-            stariFilm.BrojOcena++;
-            Context.Update<Film>(stariFilm);
+            pronadjenFilm.Ocena = (ocena+pronadjenFilm.BrojOcena*pronadjenFilm.Ocena)/(pronadjenFilm.BrojOcena+1);
+            pronadjenFilm.BrojOcena++;
+            Context.Update<Film>(pronadjenFilm);
             await Context.SaveChangesAsync();
         }
     }
@@ -140,6 +104,32 @@ namespace zoo.Controllers
 
 
 
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /*[Route("UcitavanjeTriTopFilma/{idProdKuce}")]
+        [HttpGet]
+        public async Task<Film[]> UcitavanjeTriTopFilma(int idProdKuce)
+        {
+ 
+        var listaIDKategorija= await Context.kategorije.Where(p => p.produkcijskaKuca[1].ID  ==idProdKuce).ToListAsync();
+
+
+        var nadjeniFilmovi= await Context.filmovi.Where(p=>listaIDKategorija.Contains(p.Kategorija)).ToListAsync();/////OVO RADI TAKO STO VRACA FILMOVE RESPONSE JE OVAKAV [{"id":1,"ime":"Armagedon","ocena":5,"brojOcena":3},{"id":1005,"ime":"j","ocena":9,"brojOcena":10},{"id":1006,"ime":"j","ocena":9,"brojOcena":10},{"id":1007,"ime":"j","ocena":9,"brojOcena":10},{"id":1008,"ime":"j","ocena":9,"brojOcena":10},{"id":1009,"ime":"j","ocena":9,"brojOcena":10}]
+        Film[] TriNadjenaFilma=new Film[3];///niz 3 filma
+            
+            float maxOcena=-1;
+            float minOcena=11;
+            foreach( Film element in nadjeniFilmovi)
+            {
+                if(element.Ocena>maxOcena){ maxOcena=element.Ocena; TriNadjenaFilma[0]=element;}
+                if(element.Ocena<minOcena) {
+                    minOcena=element.Ocena;
+                    TriNadjenaFilma[2]=element;
+                    TriNadjenaFilma[1]=element;
+                }
+            }
+        return TriNadjenaFilma;
+        }
+*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
 
@@ -160,7 +150,41 @@ namespace zoo.Controllers
 
 
 
- /*Nije bitno sta je u bazi na azure serveru, bitno je kako isprojektujes sistem , a posle kako se napravi migracija, to nije bitno sad za mene*/
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*var id = 1;
