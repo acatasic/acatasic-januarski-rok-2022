@@ -43,27 +43,40 @@ namespace zoo.Controllers
         [HttpGet]
         public async Task<Film[]> UcitavanjeTriTopFilmaKategorije(int idKategorije,int idProdKuce)
         {
-          
-            var nadjeniFilmovi= await Context.filmovi.Where(p=>p.Kategorija.ID==idKategorije && p.ProdukcijskaKuca.ID==idProdKuce).ToListAsync();/////OVO RADI TAKO STO VRACA FILMOVE RESPONSE JE OVAKAV [{"id":1,"ime":"Armagedon","ocena":5,"brojOcena":3},{"id":1005,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1006,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1007,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1008,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1009,"ime":"jedno","ocena":9,"brojOcena":10}]
+                   
+             var nadjeniFilmovi= await Context.filmovi.Where(p=>p.Kategorija.ID==idKategorije && p.ProdukcijskaKuca.ID==idProdKuce).ToListAsync();/////OVO RADI TAKO STO VRACA FILMOVE RESPONSE JE OVAKAV [{"id":1,"ime":"Armagedon","ocena":5,"brojOcena":3},{"id":1005,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1006,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1007,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1008,"ime":"jedno","ocena":9,"brojOcena":10},{"id":1009,"ime":"jedno","ocena":9,"brojOcena":10}]
             Film[] TriNadjenaFilma=new Film[3];///niz 3 filma
             
             float maxOcena=-1;
             float minOcena=11;
-            float trenutnaOcena=0;//sluzi za prosecnu ocenu
-            int i=1;
+           
+            
+            int duzinaNiza=nadjeniFilmovi.Count;
+
 
             foreach( Film element in nadjeniFilmovi)
             {
-                if(element.Ocena>=maxOcena){ maxOcena=element.Ocena; TriNadjenaFilma[0]=element;}
+                if(element.Ocena>maxOcena){ maxOcena=element.Ocena; TriNadjenaFilma[0]=element;}
                 if(element.Ocena<minOcena) {
                     minOcena=element.Ocena;
                     TriNadjenaFilma[1]=element;
                 }
-               
-                if (i<=nadjeniFilmovi.Count/2) TriNadjenaFilma[2]=element;
-                if (element.Ocena>=trenutnaOcena) {i++; trenutnaOcena = element.Ocena;}
             }
+            for (int n=0;n<duzinaNiza;i++){
+                for (int m=0;m<duzinaNiza;i++)
+                {
+                    if (nadjeniFilmovi[n].Ocena>nadjeniFilmovi[m].Ocena) {Film t=nadjeniFilmovi[n];
+                    nadjeniFilmovi[n]=nadjeniFilmovi[m];
+                    nadjeniFilmovi[m]=t;}
+                    }
+            }
+
+            
+            TriNadjenaFilma[2]= nadjeniFilmovi[duzinaNiza/2]; 
+               
+        
         return TriNadjenaFilma;
+        
         }
 
     
