@@ -1,7 +1,15 @@
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 .glavniDiv {
     display: flex;
     flex-direction: row;
-    flex: 1 0 auto;
+    flex-wrap: wrap;
+
+    /*flex: 1 0 auto;*/
 }
 .kontejner {
     display: flex;
@@ -9,6 +17,7 @@
     flex-direction: column;
     flex: 1 0 auto;
     max-width: 33%;
+    min-width: 20%;
   
 }
 
@@ -54,7 +63,7 @@ display: flex;
 .lok {
     border: 1px solid rgb(255, 255, 255);
     flex: 1 0 1;
-    margin: 3%;
+    margin: 2%;
     display: flex;
     height: 200px;/*da bi dobio uspravan oblik samo stavim height 100px*/
     text-align: center;
@@ -66,6 +75,10 @@ display: flex;
     background-color: rgb(9, 146, 1);
     display: flex;
 }
+
+
+
+
 
 
 
