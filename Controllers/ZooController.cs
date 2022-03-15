@@ -34,7 +34,7 @@ namespace zoo.Controllers
 
             var produkcijskeKuceNadjene=await Context.produkcijskeKuce.FindAsync(idProdKuce);
             var kat=await Context.kategorije.Include(p=>p.ProdukcijskaKuca).Where(p=>p.ProdukcijskaKuca.Contains(produkcijskeKuceNadjene)).ToListAsync();         
-             //////////// kako da povezes tabele bez tabele za vezu u c sharpu i kako da pristupis podacima preko liste
+             //////////// kako da povezes tabele bez tabele za vezu u c sharpu i kako da pristupis podacima u listi
            
             return kat;
         }      
