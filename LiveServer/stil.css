@@ -1,0 +1,81 @@
+.mainDiv{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.glavniDiv {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    /*flex: 1 0 auto;*/
+}
+.kontejner {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+    flex: 1 0 auto;
+    max-width: 33%;
+    min-width: 20%;
+    min-width: 300px;
+  
+}
+
+.kontForma {
+    display: flex;
+    border: 1px solid black;
+    flex-direction: column;
+}
+
+
+
+@media only screen and (max-width: 1200px) {
+    .glavniDiv {
+       
+        flex-direction: row;  
+    }
+}
+
+
+.red {
+    display: flex;
+    flex-grow: 1;
+}
+
+.divZaIzborFilmova
+{
+display: flex;
+    flex-direction: row; /*mora flex da se doda da bi selekt bio u istom redu kao i labela*/
+}
+
+.divZaCrtanjeOcena{
+    border: 1px solid black;
+    display: flex;
+    flex: 1 0 auto;
+    margin: 1%;
+    display: flex;
+    height: 20%;
+    text-align: center;
+    background-color: white;
+    flex-direction: row; /* dodali smo div koji ce da sadrzi ove uspravne stubice. njegov flex direction je row, a divu koji je u njemu je isto dodato flex, ali column reverse, takodje popuna mora imati flex*/
+}
+
+.lok {
+    border: 1px solid rgb(255, 255, 255);
+    flex: 1 0 1;
+    margin: 2%;
+    display: flex;
+    height: 200px;/*da bi dobio uspravan oblik samo stavim height 100px*/
+    text-align: center;
+    background-color: white;
+    flex-direction:column-reverse;
+}
+
+.popuna {
+    background-color: rgb(9, 146, 1);
+    display: flex;
+}
+
+
+
