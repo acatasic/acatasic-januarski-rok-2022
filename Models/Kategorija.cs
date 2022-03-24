@@ -16,11 +16,13 @@ namespace zoo.Models{
 
         [JsonIgnore]
         public List<ProdukcijskaKuca> ProdukcijskaKuca{get;set;}
-     
+            public List<Film> Film{get;set;}////////////dodato je ovo za Film da kategorija ima listu filmova
+        
         public Kategorija()
         {
        
            this.ProdukcijskaKuca=new List<ProdukcijskaKuca>();
+              this.Film=new List<Film>();
         }
     }
 }
