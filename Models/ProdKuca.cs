@@ -21,12 +21,15 @@ namespace zoo.Models{
         //public virtual Kategorija Kategorija{get;set;}
         [JsonIgnore]/////mora da se doda json ignore, tabela spoja se pravi automatski
         public List<Kategorija>  Kategorija{get;set;}
+        
+        public List<Film> Film{get;set;}
 
       /*  [JsonIgnore]
         public Kategorija KategorijaID{get;set;}      */
     public ProdukcijskaKuca()
     {
         this.Kategorija = new List<Kategorija>();
+         this.Film = new List<Film>();
     }
     }
 }
