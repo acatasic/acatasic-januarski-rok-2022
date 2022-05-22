@@ -32,8 +32,8 @@ namespace zoo.Controllers
         public async Task<List<Kategorija>> PreuzmiKategorije(int idProdKuce)
         {
 
-            var produkcijskeKuceNadjene=await Context.produkcijskeKuce.FindAsync(idProdKuce);
-            var kat=await Context.kategorije.Include(p=>p.ProdukcijskaKuca).Where(p=>p.ProdukcijskaKuca.Contains(produkcijskeKuceNadjene)).ToListAsync();         
+            var produkcijskaKucaNadjena=await Context.produkcijskeKuce.FindAsync(idProdKuce);
+            var kat=await Context.kategorije.Include(p=>p.ProdukcijskaKuca).Where(p=>p.ProdukcijskaKuca.Contains(produkcijskaKucaNadjena)).ToListAsync();         
             
            
             return kat;
